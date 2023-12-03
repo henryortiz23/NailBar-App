@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.AgendarCitaClientePage"
+             Title="NailBar">
+
+    <ScrollView>
+        <StackLayout
+            Spacing="20"
+            Padding="20" 
+            HorizontalOptions="FillAndExpand">
+
+            <Image
+                Source="agendar_nailbar.svg"
+                HeightRequest="100"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Agendar cita"
+                Style="{StaticResource LabelTitle}"/>
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <Picker Title="Seleccione quién le atenderá" ItemsSource="{Binding NombresUsuarios}" SelectedIndexChanged="SelectedIndexChangedEmpleados" x:Name="picEmpleados"/>
+            </Frame>
+
+            
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <Picker x:Name="picServicios" Title="Seleccione un servicio" Background="transparent" SelectedIndexChanged="SelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Limpieza y corte de uñas de los pies (Pedicure)</x:String>
+                            <x:String>Limpieza y corte de unas de las manos (Manicure)</x:String>
+                            <x:String>Retoque Acrílico de manos y pies</x:String>
+                            <x:String>Colocación y pintado de uñas acrílicas</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Frame>
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <Entry x:Name="entPrecio" IsReadOnly="True" Placeholder="Precio"/>
+            </Frame>
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <DatePicker Background="transparent" x:Name="datFecha"/>
+            </Frame>
+            <Frame Style="{StaticResource FrameEntry}">
+                <Picker Title="Seleccione la Hora" x:Name="datHora" TitleColor="#9e42a5" ItemsSource="{Binding listHoras}"/>
+            </Frame>
+            
+            <Frame Style="{StaticResource FrameEntry}">
+                <Editor BackgroundColor="Transparent" x:Name="ediInfoExtra"
+           Placeholder="Informacion extra" HeightRequest="80" VerticalTextAlignment="Center"/>
+            </Frame>
+
+            <VerticalStackLayout WidthRequest="300" Spacing="25" Margin="20,50,20,0">
+                <Button Text="Crear cita" Padding="10" Clicked="CrearCitaClicked"/>
+                <Button Text="Cancelar" Style="{StaticResource ButtonStyle2}" Clicked="CancelarClicked"/>
+
+            </VerticalStackLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

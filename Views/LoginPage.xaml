@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.LoginPage"
+             Title="NailBar">
+
+    <ScrollView>
+        <StackLayout
+            Spacing="25"
+            Padding="20" 
+            HorizontalOptions="FillAndExpand">
+
+            <StackLayout 
+                Spacing="25"
+                Padding="20">
+
+                <Frame WidthRequest="120" HeightRequest="120" CornerRadius="99" BorderColor="Transparent">
+                    <Image
+                Source="icon_perfil.svg"
+                HeightRequest="100"
+                HorizontalOptions="Center" />
+                </Frame>
+
+                <Label
+                Text="Iniciar sesión"
+                Style="{StaticResource LabelTitle}"/>
+
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry Background="transparent" x:Name="entCorreo"
+                       Placeholder="Correo" Keyboard="Email" Text="usuario1@gmail.com"/>
+                </Frame>
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry BackgroundColor="Transparent" x:Name="entPass"
+                       Placeholder="Contraseña" IsPassword="True" Text="usuario1"/>
+                </Frame>
+
+                <Label Text="Olvidé mi contraseña" Style="{StaticResource LabelCardText}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <VerticalStackLayout Spacing="25" Margin="0,50,0,0">
+                    <Button Text="Iniciar" Padding="10" Clicked="OnIniciarClicked"/>
+                    <Button Text="Registrarse" Style="{StaticResource ButtonStyle2}" Clicked="OnRegisterClicked"/>
+                </VerticalStackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

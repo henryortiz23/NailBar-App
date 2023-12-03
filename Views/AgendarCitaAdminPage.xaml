@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.AgendarCitaAdminPage"
+             Title="NailBar">
+
+    <ScrollView>
+        <StackLayout
+            Spacing="20"
+            Padding="20" 
+            HorizontalOptions="FillAndExpand">
+
+            <Image
+                Source="agendar_nailbar.svg"
+                HeightRequest="100"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Agendar cita"
+                Style="{StaticResource LabelTitle}"/>
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <Entry Placeholder="Cliente">
+                    
+                </Entry>
+            </Frame>
+
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <Picker x:Name="picServicios" Title="Seleccione un servicio" Background="transparent">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Opción 1</x:String>
+                            <x:String>Opción 2</x:String>
+                            <x:String>Opción 3</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Frame>
+
+            <Frame Style="{StaticResource FrameEntry}">
+                <DatePicker Background="transparent" x:Name="datFecha"/>
+            </Frame>
+            <Frame Style="{StaticResource FrameEntry}">
+                <TimePicker BackgroundColor="Transparent" x:Name="datHora"/>
+            </Frame>
+            <Frame Style="{StaticResource FrameEntry}">
+                <Editor BackgroundColor="Transparent" x:Name="ediInfoExtra"
+           Placeholder="Informacion extra" HeightRequest="80" VerticalTextAlignment="Center"/>
+            </Frame>
+
+            <VerticalStackLayout WidthRequest="300" Spacing="25" Margin="20,50,20,0">
+                <Button Text="Crear cita" Padding="10"/>
+                <Button Text="Cancelar" Style="{StaticResource ButtonStyle2}"/>
+
+            </VerticalStackLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

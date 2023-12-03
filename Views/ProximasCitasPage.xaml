@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.ProximasCitasPage"
+             Title="Proximas citas">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Spacing="5" Padding="5" Shadow="{StaticResource Shadow}">
+
+
+                <CollectionView x:Name="list"
+         SelectionMode="Single" ItemsSource="{Binding DataItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Style="{StaticResource FrameCard}"  BorderColor="Transparent">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="8*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="clock.svg" WidthRequest="32" Grid.Column="0"/>
+
+                                        <StackLayout Grid.Column="1" Margin="10,0,10,0">
+                                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
+                                                <HorizontalStackLayout>
+                                                    <Image Source="date.svg" Style="{StaticResource ImageIcon}"/>
+                                                    <Label Text="{Binding Fecha}" Style="{StaticResource LabelSubTitle}"/>
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout>
+                                                    <Image Source="time.svg" Style="{StaticResource ImageIcon}"/>
+                                                    <Label Text="{Binding Hora}" Style="{StaticResource LabelSubTitle}"/>
+                                                </HorizontalStackLayout>
+
+                                            </FlexLayout>
+                                            <StackLayout>
+                                                    <Label Text="{Binding Cliente}" Style="{StaticResource LabelCardText}" FontAttributes="Bold"/>
+                                                </StackLayout>
+                                                <HorizontalStackLayout>
+                                                    <Image Source="phone.svg" Style="{StaticResource ImageIcon}"/>
+                                                    <Label Text="{Binding Telefono}" Style="{StaticResource LabelCardText}"/>
+                                                </HorizontalStackLayout>
+
+                                            
+                                            <Label Text="Limpieza y corte de uñas de los pies (Pedicure)" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+    
+</ContentPage>

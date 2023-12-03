@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mauiPopup:BasePopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mauiPopup="clr-namespace:MauiPopup.Views;assembly=MauiPopup"
+             x:Class="NailBar_App.Views.CalificarClientePage"
+                         IsCloseOnBackgroundClick="false"
+                         HorizontalOptions="FillAndExpand"
+                         BackgroundImageSource="background_popup.svg"
+                         Margin="20"
+                         Title="Calificar servicio">
+
+    <Frame Style="{StaticResource FrameEntry}" Padding="20">
+        <StackLayout>
+            <Label Text="NailBar - Calificar servicio" Style="{StaticResource LabelSubTitle}"/>
+
+            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceEvenly" HeightRequest="48" Margin="10">
+                <Image x:Name="star1" Source="star1.svg" FlexLayout.Basis="12%" AutomationId="1">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="evaluate"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="star2" Source="star1.svg" FlexLayout.Basis="12%" AutomationId="2">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="evaluate"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="star3" Source="star1.svg" FlexLayout.Basis="12%" AutomationId="3">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="evaluate"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="star4" Source="star1.svg" FlexLayout.Basis="12%" AutomationId="4">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="evaluate"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="star5" Source="star1.svg" FlexLayout.Basis="12%" AutomationId="5">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="evaluate"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </FlexLayout>
+            <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="End" Spacing="10">
+                <Button Text="Aceptar"/>
+                <Button Text="Cancelar" Style="{StaticResource ButtonStyle2}" Clicked="OnCerrarClicked"/>
+            </HorizontalStackLayout>
+        </StackLayout>
+    </Frame>
+</mauiPopup:BasePopupPage>

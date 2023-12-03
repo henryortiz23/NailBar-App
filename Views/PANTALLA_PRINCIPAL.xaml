@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.PANTALLA_PRINCIPAL"
+             Title="Pantalla principal">
+
+
+    <ScrollView>
+        <StackLayout
+            Spacing="25"
+            Padding="20" 
+            HorizontalOptions="FillAndExpand">
+            
+
+            <StackLayout HorizontalOptions="Fill" >
+                <Label Text="Botones prueba" Style="{StaticResource LabelSubTitle}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+                <StackLayout>
+                    <!--BOTONES CLIENTE-->
+                    <Frame Padding="10">
+                        <StackLayout HorizontalOptions="Fill" >
+                            <Label Text="Botones CLIENTE" Style="{StaticResource LabelCardText}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+
+                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceEvenly">
+                                <Button Text="Iniciar cliente" Margin="5" Clicked="OnIniciarSesionClicked"/>
+                                <Button Text="Registrarse cliente"  Margin="5" Clicked="OnRegistrarseClicked"/>
+                                <Button Text="Principal cliente"  Margin="5" Clicked="OnMainClienteClicked"/>
+                                <Button Text="Agendar cita" Margin="5" Clicked="OnAgendarCitaClicked"/>
+                                <Button Text="Citas previas cliente" Margin="5" Clicked="OnCitasPreviasClicked"/>
+                                <Button Text="Perfil" Margin="5" Clicked="OnPerfilClicked"/>
+                                <Button Text="Ventana Calificar" Margin="5" Clicked="OnCalificarClicked"/>
+                                <Button Text="Ventana enviar Correo" Margin="5" Clicked="OnEnviarEmailClicked"/>
+
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+
+                    <!--BOTONES ADMINISTRADOR-->
+                    <Frame Padding="10">
+                        <StackLayout HorizontalOptions="Fill" >
+                            <Label Text="Botones ADMINISTRADOR" Style="{StaticResource LabelCardText}" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"/>
+
+                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceEvenly">
+                                <Button Text="Principal Administrador" Margin="5" Clicked="OnMainAdminClicked"/>
+                                <Button Text="Citas pendientes administrador"  Margin="5" Clicked="OnCitasProximasAdminClicked"/>
+                                <Button Text="Historial citas administrador" Margin="5" Clicked="OnCitasHistorialAdminClicked"/>
+
+                                <Button Text="Agendar cita para cliente (Opcional)" Margin="5" Clicked="OnAgendarCitaAdminClicked"/>
+
+                                <Button Text="PRUEBA EMAIL ID" Margin="5" Clicked="OnEmailIdClicked"/>
+
+                            </FlexLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+
+
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>

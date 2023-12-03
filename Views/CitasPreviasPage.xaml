@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.CitasPreviasPage"
+             Title="Su historial de citas">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Spacing="5" Padding="10" Shadow="{StaticResource Shadow}" >
+                <CollectionView x:Name="list"
+                        SelectionMode="Single" ItemsSource="{Binding DataItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Style="{StaticResource FrameCard}" CornerRadius="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="5*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="ok2.svg" WidthRequest="32"/>
+                                        <StackLayout Grid.Column="1" Margin="10,0,10,0">
+                                            <Label Text="{Binding Tipo}" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
+                                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
+                                                <Label Text="{Binding Fecha}" Style="{StaticResource LabelSubTitle}" FontSize="18"/>
+                                                <Label Text="{Binding Hora}" Style="{StaticResource LabelSubTitle}" FontSize="18"/>
+
+                                            </FlexLayout>
+
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+
+
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

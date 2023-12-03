@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NailBar_App.Views.RegisterPage"
+             Title="Registrarse">
+
+    <Grid>
+        <ScrollView>
+            <StackLayout
+            Spacing="20"
+            Padding="20" 
+            HorizontalOptions="FillAndExpand" 
+                x:Name="contenedor1">
+
+                <Image
+                Source="register_nailbar.svg"
+                HeightRequest="100"
+                HorizontalOptions="Center" />
+
+                <Label
+                Text="Registrase"
+                Style="{StaticResource LabelTitle}"/>
+
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry Background="transparent" x:Name="entNombre"
+                       Placeholder="Nombre" Text=""/>
+                </Frame>
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry BackgroundColor="Transparent" x:Name="entCorreo"
+                       Placeholder="Correo electrónico" Text=""/>
+                </Frame>
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry BackgroundColor="Transparent" x:Name="entTelefono"
+           Placeholder="Telefono" Text=""/>
+                </Frame>
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry BackgroundColor="Transparent" x:Name="entPass"
+Placeholder="Contraseña" Text=""/>
+                </Frame>
+                <Frame Style="{StaticResource FrameEntry}">
+                    <Entry BackgroundColor="Transparent" x:Name="entPass2"
+Placeholder="Repetir contraseña" Text=""/>
+                </Frame>
+
+                <VerticalStackLayout WidthRequest="300" Spacing="25" Margin="20,50,20,0">
+                    <Button Text="Registrarse" Padding="10" Clicked="Register_Clicked"/>
+                    <Button Text="Iniciar sesión" Style="{StaticResource ButtonStyle2}" Clicked="OnIniciarSesionClicked"/>
+
+                </VerticalStackLayout>
+
+            </StackLayout>
+
+        </ScrollView>
+
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Margin="20"
+            Shadow="{StaticResource Shadow}"
+            Padding="20"
+            x:Name="contenedor2" WidthRequest="0">
+
+            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="30">
+                <StackLayout>
+                    <StackLayout>
+                        <Label Text="Espere" Style="{StaticResource LabelSubTitle}" Margin="0,0,0,20" HorizontalOptions="CenterAndExpand"/>
+                        <Label Text="Estamos enviando un correo con el código de confirmación." Style="{StaticResource LabelCardText}"/>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+        </StackLayout>
+
+
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand"
+            Margin="20"
+            Shadow="{StaticResource Shadow}"
+            Padding="20"
+            x:Name="contenedor3" WidthRequest="0">
+
+            <Frame HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" Padding="30">
+                <StackLayout>
+                    <Label Text="Ingrese codigo" Style="{StaticResource LabelSubTitle}" Margin="0,0,0,20" HorizontalOptions="CenterAndExpand"/>
+                    <Label Text="Hemos enviado un correo con el código de confirmación, por favor revise su bandeja de entrada y proporciónelo a continuación." Style="{StaticResource LabelCardText}"/>
+                    <Frame Style="{StaticResource FrameEntry}" HeightRequest="60">
+                        <Entry FontSize="24" x:Name="entCode" Keyboard="Numeric" HorizontalTextAlignment="Center" Placeholder="Código" MaxLength="6" Text=""/>
+                    </Frame>
+
+                    <FlexLayout Direction="Row" HorizontalOptions="FillAndExpand" Margin="0,50,0,0" JustifyContent="SpaceBetween">
+                        <Button Text="Confirmar" Padding="10" FlexLayout.Basis="48%" Clicked="Confirmar"/>
+                        <Button Text="Cancelar" Style="{StaticResource ButtonStyle2}" FlexLayout.Basis="48%" Clicked="Cancelar2"/>
+                    </FlexLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </Grid>
+</ContentPage>
+        
