@@ -10,6 +10,7 @@ namespace NailBar_App.Models
     {
         public string Id { get; set; }
         public string IdAgente { get; set; }
+        public string IdCliente { get; set; }
         public string Agente { get; set; }
         public string Cliente { get; set; }
         public string Telefono { get; set; }

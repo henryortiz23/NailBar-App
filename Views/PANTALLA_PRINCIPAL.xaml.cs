@@ -67,7 +67,7 @@ public partial class PANTALLA_PRINCIPAL : ContentPage
 
     private async void OnEnviarEmailClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new EnviarCorreoPage());
+        //await Navigation.PushAsync(new EnviarCorreoPage());
     }
 
 
@@ -87,7 +87,7 @@ public partial class PANTALLA_PRINCIPAL : ContentPage
 
     private async void OnCitasHistorialAdminClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new HistorialCitasPage());
+     //   await Navigation.PushAsync(new HistorialCitasPage());
     }
 
 

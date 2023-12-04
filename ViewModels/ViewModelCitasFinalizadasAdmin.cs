@@ -6,19 +6,19 @@ using System.Diagnostics;
 
 namespace NailBar_App.ViewModels
 {
-    public class ViewModelCitasPreviasCliente
+    public class ViewModelCitasFinalizadasAdmin
     {
         private FirebaseClient _firebase;
         private string childString;
 
         public ObservableCollection<Cita> DataItems { get; } = new ObservableCollection<Cita>();
 
-        public ViewModelCitasPreviasCliente(string child)
+        public ViewModelCitasFinalizadasAdmin(string child, bool cargar)
         {
             childString = child;
-            _firebase = new FirebaseClient(new Controllers.Config().GetUrlCitasFinalizadasCliente());
-            
-             ListenToChanges();
+            _firebase = new FirebaseClient(new Controllers.Config().GetUrlCitasFinalizadasAdmin());
+            if(cargar)
+            ListenToChanges();
         }
 
         private void ListenToChanges()
@@ -38,7 +38,7 @@ namespace NailBar_App.ViewModels
                         {
                             //Item actualizado
                             int index = GetIndexId(newItem.Id);
-                            
+
                             //existingItem.Title = newItem.Title;
                             DataItems.RemoveAt(index);
                             DataItems.Insert(index, newItem);
@@ -61,7 +61,29 @@ namespace NailBar_App.ViewModels
                 });
         }
 
-        
+        //public async Task InsertData(string hIndex, Cita newItem)
+        public async Task InsertData(string hIndex, Cita newItem)
+        {
+            await _firebase
+                .Child(childString + "/" + hIndex)
+                .PutAsync(newItem);
+        }
+
+        public async Task UpdateData(Cita updatedItem)
+        {
+            await _firebase
+                .Child(childString)
+                .Child(updatedItem.Id)
+                .PutAsync(updatedItem);
+        }
+
+        public async Task DeleteData(string itemId)
+        {
+            await _firebase
+                .Child(childString)
+                .Child(itemId)
+                .DeleteAsync();
+        }
 
         public int GetIndexId(string itemId)
         {

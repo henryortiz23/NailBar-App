@@ -50,7 +50,8 @@ public partial class AgendarCitaClientePage : ContentPage
             Tipo = picServicios.SelectedItem.ToString(),
             Precio = entPrecio.Text,
             Calificacion = "0",
-            Extra = ediInfoExtra.Text
+            Extra = ediInfoExtra.Text,
+            IdCliente= usuarioActual.Id
         };
         
         if (await ComprobarAdmin(idItem) == null) 

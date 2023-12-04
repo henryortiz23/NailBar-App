@@ -18,7 +18,7 @@ public partial class MainAdminPage : ContentPage
 
     private async void TapGestureHistorial(object sender, TappedEventArgs e)
     {
-        await DisplayAlert("titulo", "Dio click para ver historial", "Ok");
+        await Navigation.PushAsync(new HistorialCitasPage(usuarioActual));
     }
 
     private async void TapGestureListado(object sender, TappedEventArgs e)

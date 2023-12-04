@@ -83,9 +83,6 @@
 	  <Compile Update="Views\CalificarClientePage.xaml.cs">
 	    <DependentUpon>CalificarClientePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ConfirmacionCorreoPage.xaml.cs">
-	    <DependentUpon>ConfirmacionCorreoPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\PerfilPage.xaml.cs">
 	    <DependentUpon>PerfilPage.xaml</DependentUpon>
 	  </Compile>
@@ -101,9 +98,6 @@
 	  <MauiXaml Update="Views\CitasPreviasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\EnviarCorreoPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\HistorialCitasPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -117,9 +111,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\CalificarClientePage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\ConfirmacionCorreoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PerfilPage.xaml">

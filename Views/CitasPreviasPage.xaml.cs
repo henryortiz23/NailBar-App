@@ -5,7 +5,7 @@ namespace NailBar_App.Views;
 
 public partial class CitasPreviasPage : ContentPage
 {
-    private ViewModelCitasPreviasCliente _viewModel;
+    private ViewModelCitasFinalizadasCliente _viewModel;
     private Cliente usuarioActual;
     public CitasPreviasPage(Cliente datosUsuario)
 	{
@@ -21,7 +21,7 @@ public partial class CitasPreviasPage : ContentPage
 
     private async Task getDatos()
     {
-        _viewModel = new ViewModelCitasPreviasCliente(usuarioActual.Id);
+        _viewModel = new ViewModelCitasFinalizadasCliente(usuarioActual.Id,true);
         BindingContext = _viewModel;
     }
 }

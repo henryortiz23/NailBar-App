@@ -8,10 +8,10 @@
     <ContentPage.Content>
         <ScrollView>
             <VerticalStackLayout Spacing="5" Padding="5" Shadow="{StaticResource Shadow}">
-
-
                 <CollectionView x:Name="list"
-         SelectionMode="Single" ItemsSource="{Binding DataItems}">
+                                SelectionMode="Single" 
+                                ItemsSource="{Binding DataItems}"
+                                SelectionChanged="list_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -25,6 +25,9 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Frame Style="{StaticResource FrameCard}"  BorderColor="Transparent">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Frame_Tapped"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*" />
@@ -45,17 +48,18 @@
                                                     <Image Source="time.svg" Style="{StaticResource ImageIcon}"/>
                                                     <Label Text="{Binding Hora}" Style="{StaticResource LabelSubTitle}"/>
                                                 </HorizontalStackLayout>
-
                                             </FlexLayout>
-                                            <StackLayout>
+                                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="Start">
+                                                <StackLayout>
                                                     <Label Text="{Binding Cliente}" Style="{StaticResource LabelCardText}" FontAttributes="Bold"/>
                                                 </StackLayout>
-                                                <HorizontalStackLayout>
+                                                <HorizontalStackLayout Margin="10,0,0,0">
                                                     <Image Source="phone.svg" Style="{StaticResource ImageIcon}"/>
                                                     <Label Text="{Binding Telefono}" Style="{StaticResource LabelCardText}"/>
                                                 </HorizontalStackLayout>
+                                            </FlexLayout>
 
-                                            
+
                                             <Label Text="Limpieza y corte de uñas de los pies (Pedicure)" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
 
                                         </StackLayout>
@@ -72,5 +76,5 @@
             </VerticalStackLayout>
         </ScrollView>
     </ContentPage.Content>
-    
+
 </ContentPage>

@@ -22,7 +22,7 @@ namespace NailBar_App.Controllers
             UrlCitasPendientesAdmin = "Citas/PendientesAdmin/";
             UrlCitasFinalizadasAdmin = "Citas/FinalizadasAdmin/";
             UrlCitasPendientesCliente = "Citas/PendientesCliente/";
-            UrlCitasFinalizadasCliente = "Citas/FInalizadasAdmin/";
+            UrlCitasFinalizadasCliente = "Citas/FinalizadasCliente/";
             UrlClientes = "Clientes/";
             UrlUsuarios = "Usuarios/";
         }

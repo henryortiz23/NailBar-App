@@ -2,96 +2,88 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NailBar_App.Views.HistorialCitasPage"
+             xmlns:conver="clr-namespace:NailBar_App.Controllers"
              Title="Historial de citas">
 
-    <ScrollView>
-        <VerticalStackLayout Spacing="5" Padding="5" Shadow="{StaticResource Shadow}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conver:Star1 x:Key="convertStar1" />
+            <conver:Star2 x:Key="convertStar2" />
+            <conver:Star3 x:Key="convertStar3" />
+            <conver:Star4 x:Key="convertStar4" />
+            <conver:Star5 x:Key="convertStar5" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <Frame Style="{StaticResource FrameCard}"  BorderColor="Transparent" Shadow="{StaticResource Shadow}">
+    <ContentPage.Content>
+        <ScrollView>
+            <VerticalStackLayout Spacing="5" Padding="5" Shadow="{StaticResource Shadow}">
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="ok2.svg" WidthRequest="32" Grid.Column="0"/>
+                <CollectionView x:Name="list"
+                                SelectionMode="Single" 
+                                ItemsSource="{Binding DataItems}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
 
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0">
-                        <Label Text="Diana Caceres" Style="{StaticResource LabelSubTitle}" />
-                        <Label Text="Limpieza y corte de uñas de los pies (Pedicure)" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
-                        <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
-                            <HorizontalStackLayout>
-                                <Image Source="date.svg" Style="{StaticResource ImageIcon}"/>
-                                <Label Text="01/11/2023" Style="{StaticResource LabelCardText}"/>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout>
-                                <Image Source="time.svg" Style="{StaticResource ImageIcon}"/>
-                                <Label Text="04:30 PM" Style="{StaticResource LabelCardText}"/>
-                            </HorizontalStackLayout>
-                        </FlexLayout>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="auto" />
+                                </Grid.ColumnDefinitions>
 
-                        <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
-                            <HorizontalStackLayout>
-                                <Image Source="phone.svg" Style="{StaticResource ImageIcon}"/>
-                                <Label Text="1234-5678" Style="{StaticResource LabelCardText}"/>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout Spacing="2">
-                                <Image x:Name="star1" Source="star2.svg"/>
-                                <Image x:Name="star2" Source="star2.svg"/>
-                                <Image x:Name="star3" Source="star2.svg"/>
-                                <Image x:Name="star4" Source="star1.svg"/>
-                                <Image x:Name="star5" Source="star1.svg"/>
-                            </HorizontalStackLayout>
-                        </FlexLayout>
-                    </StackLayout>
-                </Grid>
-            </Frame>
+                                <Frame Style="{StaticResource FrameCard}" CornerRadius="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="7*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="ok2.svg" WidthRequest="32" Grid.Column="0"/>
 
-            <Frame Style="{StaticResource FrameCard}" CornerRadius="5">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="7*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="ok2.svg" WidthRequest="32" Grid.Column="0"/>
+                                        <StackLayout Grid.Column="1" Margin="10,0,10,0">
+                                            <Label Text="{Binding Cliente}" Style="{StaticResource LabelSubTitle}" />
+                                            <Label Text="{Binding Tipo}" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
+                                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
+                                                <HorizontalStackLayout>
+                                                    <Image Source="date.svg" Style="{StaticResource ImageIcon}"/>
+                                                    <Label Text="{Binding Fecha}" Style="{StaticResource LabelCardText}"/>
+                                                </HorizontalStackLayout>
+                                                <HorizontalStackLayout>
+                                                    <Image Source="time.svg" Style="{StaticResource ImageIcon}"/>
+                                                    <Label Text="{Binding Hora}" Style="{StaticResource LabelCardText}"/>
+                                                </HorizontalStackLayout>
+                                            </FlexLayout>
 
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0">
-                        <Label Text="Maria Lopez" Style="{StaticResource LabelSubTitle}" />
-                        <Label Text="Limpieza y corte de uñas de los pies (Pedicure)" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
-                        <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
-                            <HorizontalStackLayout>
-                                <Image Source="date.svg" Style="{StaticResource ImageIcon}"/>
-                                <Label Text="01/11/2023" Style="{StaticResource LabelCardText}"/>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout>
-                                <Image Source="time.svg" Style="{StaticResource ImageIcon}"/>
-                                <Label Text="04:30 PM" Style="{StaticResource LabelCardText}"/>
-                            </HorizontalStackLayout>
-                        </FlexLayout>
+                                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
+                                                <HorizontalStackLayout>
+                                                    <Image Source="phone.svg" Style="{StaticResource ImageIcon}"/>
+                                                    <Label Text="{Binding Telefono}" Style="{StaticResource LabelCardText}"/>
+                                                </HorizontalStackLayout>
+                                                
+                                                <HorizontalStackLayout Spacing="2" VerticalOptions="End">
+                                                    <Image x:Name="star11" HeightRequest="14" Source="{Binding Calificacion, Converter={StaticResource convertStar1}}" Margin="0,8,0,0"/>
+                                                    <Image x:Name="star12" HeightRequest="16" Source="{Binding Calificacion, Converter={StaticResource convertStar2}}" Margin="0,6,0,0"/>
+                                                    <Image x:Name="star13" HeightRequest="18" Source="{Binding Calificacion, Converter={StaticResource convertStar3}}" Margin="0,4,0,0"/>
+                                                    <Image x:Name="star14" HeightRequest="20" Source="{Binding Calificacion, Converter={StaticResource convertStar4}}" Margin="0,2,0,0"/>
+                                                    <Image x:Name="star15" HeightRequest="22" Source="{Binding Calificacion, Converter={StaticResource convertStar5}}"/>
+                                                </HorizontalStackLayout>
+                                            </FlexLayout>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
 
-                        <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
-                            <HorizontalStackLayout>
-                                <Image Source="phone.svg" Style="{StaticResource ImageIcon}"/>
-                                <Label Text="1234-5678" Style="{StaticResource LabelCardText}"/>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout Spacing="2">
-                                <Image x:Name="star11" Source="star1.svg"/>
-                                <Image x:Name="star12" Source="star1.svg"/>
-                                <Image x:Name="star13" Source="star1.svg"/>
-                                <Image x:Name="star14" Source="star1.svg"/>
-                                <Image x:Name="star15" Source="star1.svg"/>
-                            </HorizontalStackLayout>
-                        </FlexLayout>
-                    </StackLayout>
-                </Grid>
-            </Frame>
 
-        </VerticalStackLayout>
-    </ScrollView>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
