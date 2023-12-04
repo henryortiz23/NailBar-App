@@ -9,6 +9,7 @@ public partial class MainClientePage : ContentPage
 {
     public static Cliente usuarioActual;
     private string idUser;
+    private ViewModelCitasPendientesCliente viewModel;
     public MainClientePage(Cliente datosUsuario)
     {
         InitializeComponent();
@@ -42,14 +43,18 @@ public partial class MainClientePage : ContentPage
 
     private async Task ObtenerCitaProxima(StackLayout cont1, StackLayout cont2)
     {
-        DateTime dateNow = DateTime.Now.Date;
-        
-        Debug.WriteLine("FECHA ACTUAL: " + dateNow);
-        ViewModelCitasPendientesCliente viewModel = new ViewModelCitasPendientesCliente(usuarioActual.Id, true);
+        //DateTime dateNow = DateTime.Now.Date;
+
+        //Debug.WriteLine("FECHA ACTUAL: " + dateNow);
+        viewModel = new ViewModelCitasPendientesCliente(usuarioActual.Id, true);
+
 
         BindingContext = viewModel;
         Debug.WriteLine("TAMANIO EN DATAITEMS: " + viewModel.DataItems.Count);
+        Debug.WriteLine("ID DEL USUARIO: " + usuarioActual.Id);
+
         
+
         foreach (var item in viewModel.DataItems)
         {
             /*
