@@ -15,7 +15,8 @@ namespace NailBar_App
             var statusBarColor = Microsoft.Maui.Graphics.Color.FromHex("#fbebff");
             var titleColor = Microsoft.Maui.Graphics.Color.FromHex("#9e42a5");
             //var navigationPage = new NavigationPage(new Views.LoginPage());
-            var navigationPage = new NavigationPage(new Views.PANTALLA_PRINCIPAL());
+            //var navigationPage = new NavigationPage(new Views.PANTALLA_PRINCIPAL());
+            var navigationPage = new NavigationPage(new Views.LoginPage());
             navigationPage.BarTextColor = titleColor;
 
             MainPage = navigationPage;
