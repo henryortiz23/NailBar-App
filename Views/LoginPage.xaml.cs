@@ -12,7 +12,7 @@ namespace NailBar_App.Views
         public LoginPage()
         {
             InitializeComponent();
-            
+            getPrefences();
         }
 
         private async void OnRegisterClicked(object sender, EventArgs e)
@@ -36,6 +36,7 @@ namespace NailBar_App.Views
                     {
                         if (entPass.Text.Trim().Equals(cliente.Password))
                         {
+                            setPrefences();
                             cliente.Id = idUsuario;
                             var titleColor = Color.FromHex("#9e42a5");
 
@@ -56,6 +57,7 @@ namespace NailBar_App.Views
                 {
                     if (entPass.Text.Trim().Equals(usuario.Password))
                     {
+                        setPrefences();
                         usuario.Id= idUsuario;
                         var titleColor = Color.FromHex("#9e42a5");
 
@@ -64,6 +66,7 @@ namespace NailBar_App.Views
 
                         await Navigation.PopAsync();
                         App.Current.MainPage = navigationPage;
+
                     }
                     else
                     {
@@ -108,6 +111,18 @@ namespace NailBar_App.Views
             return await _firebase
                  .Child(idUsuario)
                  .OnceSingleAsync<Usuario>();
+        }
+
+        private async void getPrefences()
+        {
+            entCorreo.Text= Preferences.Default.Get("correo","");
+            entPass.Text = Preferences.Default.Get("password", "");
+        }
+
+        private async void setPrefences()
+        {
+            Preferences.Default.Set("correo", entCorreo.Text.ToString());
+            Preferences.Default.Set("password", entPass.Text.ToString());
         }
     }
 }

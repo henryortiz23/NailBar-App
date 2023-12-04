@@ -13,14 +13,16 @@ namespace NailBar_App.ViewModels
 
         public ObservableCollection<Cliente> DataItems { get; } = new ObservableCollection<Cliente>();
 
-        public ViewModelClientes(string child)
+        public ViewModelClientes(string child, bool cargar)
         {
             childString = child;
             _firebase = new FirebaseClient(new Controllers.Config().GetUrlClientes());
-            //ListenToChanges();
+
+            if(cargar)
+            ListenToChanges();
         }
 
-        public async void ListenToChanges()
+        private async void ListenToChanges()
         {
             _firebase
                 .Child(childString)
@@ -74,11 +76,11 @@ namespace NailBar_App.ViewModels
             //.PostAsync(newItem);
         }
 
-        public async Task UpdateData(Cliente updatedItem)
+        public async Task UpdateData(string idCliente, Cliente updatedItem)
         {
             await _firebase
                 .Child(childString)
-                .Child(updatedItem.Id)
+                .Child(idCliente)
                 .PutAsync(updatedItem);
         }
 

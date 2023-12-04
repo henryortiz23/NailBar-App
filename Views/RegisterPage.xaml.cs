@@ -140,7 +140,7 @@ public partial class RegisterPage : ContentPage
             Longitud = "11111",
             Imagen = ""
         };
-        ViewModelClientes viewModel = new ViewModelClientes(idCliente);
+        ViewModelClientes viewModel = new ViewModelClientes(idCliente, false);
         await viewModel.InsertData(newCliente);
 
 

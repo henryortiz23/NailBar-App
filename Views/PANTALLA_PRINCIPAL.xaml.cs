@@ -57,7 +57,7 @@ public partial class PANTALLA_PRINCIPAL : ContentPage
     }
     private async void OnPerfilClicked(object sender, EventArgs e)
     {
-        await MauiPopup.PopupAction.DisplayPopup(new PerfilPage());
+        //await MauiPopup.PopupAction.DisplayPopup(new PerfilPage());
     }
 
     private async void OnCalificarClicked(object sender, EventArgs e)
@@ -103,13 +103,13 @@ public partial class PANTALLA_PRINCIPAL : ContentPage
         var getId1 = new Controllers.ConvertIdEmail("usuario1@gmail.com").GetResp();
         Console.WriteLine("CORREO 1:" + getId1);
         var getId2 = new Controllers.ConvertIdEmail("usuario2@gmail.com").GetResp();
-        Console.WriteLine("CORREO 1:" + getId2);
+        Console.WriteLine("CORREO 2:" + getId2);
         var getId3 = new Controllers.ConvertIdEmail("usuario3@gmail.com").GetResp();
-        Console.WriteLine("CORREO 1:" + getId3);
+        Console.WriteLine("CORREO 3:" + getId3);
         var getId4 = new Controllers.ConvertIdEmail("usuario4@gmail.com").GetResp();
-        Console.WriteLine("CORREO 1:" + getId4);
+        Console.WriteLine("CORREO 4:" + getId4);
         var getId5 = new Controllers.ConvertIdEmail("usuario5@gmail.com").GetResp();
-        Console.WriteLine("CORREO 1:" + getId5);
+        Console.WriteLine("CORREO 5:" + getId5);
 
 
     }
