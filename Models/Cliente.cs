@@ -7,8 +7,11 @@
         public string Nombre { get; set; }
         public string Correo { get; set; }
         public string Password { get; set; }
+        public string ePass { get; set; }//Estado password
         public string Telefono { get; set; }
         public string Latitud { get; set; }
         public string Longitud { get; set; }
+
+        
     }
 }

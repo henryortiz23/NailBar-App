@@ -23,11 +23,6 @@ public partial class RegisterPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        entNombre.Text = "Henry Ortiz";
-        entCorreo.Text = "henryortiz_m@hotmail.com";
-        entPass.Text = "1234";
-        entPass2.Text = "1234";
-        entTelefono.Text = "12345678";
     }
 
 
@@ -138,7 +133,8 @@ public partial class RegisterPage : ContentPage
             Password = entPass.Text,
             Latitud = "11111",
             Longitud = "11111",
-            Imagen = ""
+            Imagen = "",
+            ePass="0"
         };
         ViewModelClientes viewModel = new ViewModelClientes(idCliente, false);
         await viewModel.InsertData(newCliente);
