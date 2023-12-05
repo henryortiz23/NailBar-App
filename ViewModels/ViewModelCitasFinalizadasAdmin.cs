@@ -69,11 +69,11 @@ namespace NailBar_App.ViewModels
                 .PutAsync(newItem);
         }
 
-        public async Task UpdateData(Cita updatedItem)
+        public async Task UpdateData(string id, Cita updatedItem)
         {
             await _firebase
                 .Child(childString)
-                .Child(updatedItem.Id)
+                .Child(id)
                 .PutAsync(updatedItem);
         }
 

@@ -12,6 +12,7 @@ public partial class AgendarCitaClientePage : ContentPage
     private readonly ViewModelUsuarios _viewModelUsuarios;
     private string idEmpl;
     private string idCliente;
+    private string nomAgente;
     private List<string> listHoras;
     private Cliente usuarioActual;
     public AgendarCitaClientePage(Cliente datosCliente)
@@ -42,7 +43,8 @@ public partial class AgendarCitaClientePage : ContentPage
         var newCita = new Cita
         {
             Cliente = usuarioActual.Nombre,
-            Agente = idEmpl,
+            Agente = nomAgente,
+            IdAgente=idEmpl,
             Telefono= usuarioActual.Telefono,
             Estado = "0",
             Fecha = nFecha,
@@ -61,6 +63,7 @@ public partial class AgendarCitaClientePage : ContentPage
                 await _viewModel.InsertData(hIndex, newCita);
                 ViewModelCitasPendientesAdmin tempViewModel = new ViewModelCitasPendientesAdmin(idEmpl,false);
                 await tempViewModel.InsertData(hIndex, newCita);
+                await Navigation.PopAsync();
             }
             else
             {
@@ -108,6 +111,7 @@ public partial class AgendarCitaClientePage : ContentPage
             limpiar();
             Usuario user = _viewModelUsuarios.DataItems[selectedIndex];
             idEmpl = user.Id;
+            nomAgente = user.Nombre;
         }
     }
 

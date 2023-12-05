@@ -2,14 +2,26 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NailBar_App.Views.CitasPreviasPage"
+             xmlns:conver="clr-namespace:NailBar_App.Controllers"
              Title="Su historial de citas">
 
-
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <conver:Star1 x:Key="convertStar1" />
+            <conver:Star2 x:Key="convertStar2" />
+            <conver:Star3 x:Key="convertStar3" />
+            <conver:Star4 x:Key="convertStar4" />
+            <conver:Star5 x:Key="convertStar5" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <ContentPage.Content>
         <ScrollView>
-            <VerticalStackLayout Spacing="5" Padding="10" Shadow="{StaticResource Shadow}" >
+            <VerticalStackLayout Spacing="5" Padding="10" Shadow="{StaticResource Shadow}">
                 <CollectionView x:Name="list"
-                        SelectionMode="Single" ItemsSource="{Binding DataItems}">
+                                SelectionMode="Single" 
+                                ItemsSource="{Binding DataItems}"
+                                SelectionChanged="list_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -22,7 +34,10 @@
                                     <ColumnDefinition Width="auto" />
                                 </Grid.ColumnDefinitions>
 
-                                <Frame Style="{StaticResource FrameCard}" CornerRadius="5">
+                                <Frame Style="{StaticResource FrameCard}"  Shadow="{StaticResource Shadow}" >
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="Frame_Tapped"/>
+                                    </Frame.GestureRecognizers>
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height="*" />
@@ -33,12 +48,24 @@
                                         </Grid.ColumnDefinitions>
                                         <Image Source="ok2.svg" WidthRequest="32"/>
                                         <StackLayout Grid.Column="1" Margin="10,0,10,0">
-                                            <Label Text="{Binding Tipo}" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand"/>
+                                            <Label Text="{Binding Tipo}" Style="{StaticResource LabelCardText}" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start"/>
                                             <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
-                                                <Label Text="{Binding Fecha}" Style="{StaticResource LabelSubTitle}" FontSize="18"/>
-                                                <Label Text="{Binding Hora}" Style="{StaticResource LabelSubTitle}" FontSize="18"/>
-
+                                                <Label Text="{Binding Fecha}" Style="{StaticResource LabelCardText}" FontSize="18"/>
+                                                <Label Text="{Binding Hora}" Style="{StaticResource LabelCardText}" FontSize="18"/>
                                             </FlexLayout>
+                                            <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
+                                                <StackLayout Orientation="Horizontal">
+                                                <Label Text="Le atendio: " Style="{StaticResource LabelCardText}" FontSize="18"/>
+                                                <Label Text="{Binding Agente}" Style="{StaticResource LabelCardText}" FontSize="18"/>
+                                                </StackLayout>
+                                            </FlexLayout>
+                                            <HorizontalStackLayout Spacing="2" VerticalOptions="End">
+                                                <Image x:Name="star11" HeightRequest="14" Source="{Binding Calificacion, Converter={StaticResource convertStar1}}" Margin="0,8,0,0"/>
+                                                <Image x:Name="star12" HeightRequest="16" Source="{Binding Calificacion, Converter={StaticResource convertStar2}}" Margin="0,6,0,0"/>
+                                                <Image x:Name="star13" HeightRequest="18" Source="{Binding Calificacion, Converter={StaticResource convertStar3}}" Margin="0,4,0,0"/>
+                                                <Image x:Name="star14" HeightRequest="20" Source="{Binding Calificacion, Converter={StaticResource convertStar4}}" Margin="0,2,0,0"/>
+                                                <Image x:Name="star15" HeightRequest="22" Source="{Binding Calificacion, Converter={StaticResource convertStar5}}"/>
+                                            </HorizontalStackLayout>
 
                                         </StackLayout>
                                     </Grid>

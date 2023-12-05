@@ -2,7 +2,6 @@
 using Firebase.Database.Query;
 using NailBar_App.Models;
 using System.Collections.ObjectModel;
-using System.Diagnostics;
 
 namespace NailBar_App.ViewModels
 {
@@ -21,7 +20,6 @@ namespace NailBar_App.ViewModels
             {
                 ListenToChanges();
             }
-            
         }
 
         private void ListenToChanges()
@@ -50,6 +48,17 @@ namespace NailBar_App.ViewModels
                         {
                             //Nuevo item
                             DataItems.Add(newItem);
+                            
+                            //if (citaProx)
+                            //{
+                            //    if (MainClientePage.citaProxima == null)
+                            //    {
+                            //        MainClientePage.citaProxima = newItem;
+                                    //Debug.WriteLine("PASO Y ASIGNO EL ITEM: "+ MainClientePage.citaProxima.Cliente);
+
+                            //    }
+                            //} 
+                            
                         }
                     }
                     else if (args.EventType == Firebase.Database.Streaming.FirebaseEventType.Delete)
@@ -61,6 +70,7 @@ namespace NailBar_App.ViewModels
                             DataItems.Remove(itemToRemove);
                         }
                     }
+                    
                 });
         }
 
@@ -100,5 +110,6 @@ namespace NailBar_App.ViewModels
             }
             return -1; // Devuelve -1 si no se encuentra el elemento con ese Id
         }
+
     }
 }

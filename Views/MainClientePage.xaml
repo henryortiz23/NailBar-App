@@ -14,33 +14,6 @@
                 HeightRequest="100"
                 HorizontalOptions="Center" />
 
-
-            <Frame Style="{StaticResource FrameCard}" CornerRadius="30">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="citas_nailbar.svg" WidthRequest="60"/>
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0" x:Name="contenedor1" IsVisible="true">
-                        <Label x:Name="labPrueba" Text="Cita proxima" Style="{StaticResource LabelSubTitle}"/>
-                        <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceBetween">
-                            <Label Text="11-12-2023" Style="{StaticResource LabelSubTitle}" FontSize="18"/>
-                            <Label Text="02:30 PM" Style="{StaticResource LabelSubTitle}" FontSize="18"/>
-                        </FlexLayout>
-                        <Label Text="Limpieza y corte de uñas de los pies (Pedicure)" Style="{StaticResource LabelCardText}"/>
-                    </StackLayout>
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0" x:Name="contenedor2" >
-                        <Label Text="Cita próxima" Style="{StaticResource LabelSubTitle}" IsVisible="false"/>
-
-                        <Label Text="Obteniendo proxima cita..." Style="{StaticResource LabelCardText}"/>
-                    </StackLayout>
-                </Grid>
-            </Frame>
-
             <StackLayout
             Spacing="25"
             Shadow="{StaticResource Shadow}">
@@ -66,6 +39,27 @@
                         </StackLayout>
                     </Grid>
                 </Frame>
+
+                <Frame Style="{StaticResource FrameCard}" CornerRadius="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureListado"/>
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="citas_nailbar.svg" WidthRequest="48"/>
+                        <StackLayout Grid.Column="1" Margin="10,0,10,0">
+                            <Label Text="Citas pendientes" Style="{StaticResource LabelSubTitle}"/>
+                            <Label Text="Listado de citas pendientes" Style="{StaticResource LabelCardText}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+
 
                 <Frame Style="{StaticResource FrameCard}" CornerRadius="30">
                     <Frame.GestureRecognizers>

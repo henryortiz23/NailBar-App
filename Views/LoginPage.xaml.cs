@@ -78,7 +78,7 @@ namespace NailBar_App.Views
 
         private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
         {
-            await DisplayAlert("Titulo", "Mensage", "Ok");
+            //await DisplayAlert("Titulo", "Mensage", "Ok");
         }
 
         private bool ComprobarCampos()

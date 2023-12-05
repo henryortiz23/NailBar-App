@@ -5,11 +5,11 @@ using System.Diagnostics;
 
 namespace NailBar_App.Views;
 
-public partial class ProximasCitasPage : ContentPage
+public partial class ProximasCitasClientePage : ContentPage
 {
-    private ViewModelCitasPendientesAdmin _viewModel;
-    private Usuario usuarioActual;
-    public ProximasCitasPage(Usuario datosUsuario)
+    private ViewModelCitasPendientesCliente _viewModel;
+    private Cliente usuarioActual;
+    public ProximasCitasClientePage(Cliente datosUsuario)
 	{
 		InitializeComponent();
 
@@ -24,7 +24,7 @@ public partial class ProximasCitasPage : ContentPage
 
     private async Task getDatos()
     {
-        _viewModel = new ViewModelCitasPendientesAdmin(usuarioActual.Id,true);
+        _viewModel = new ViewModelCitasPendientesCliente(usuarioActual.Id,true);
         BindingContext = _viewModel;
     }
 
@@ -35,7 +35,7 @@ public partial class ProximasCitasPage : ContentPage
         {
             if (selectedCita != null)
             {
-                bool resp = await DisplayAlert("Confirmar", "¿Desea marcar esta cita como finalizada?", "Sí", "No");
+                bool resp = await DisplayAlert("Confirmar", "¿Desea eliminar esta cita?", "Sí", "No");
 
                 if (resp)
                 {
@@ -50,30 +50,8 @@ public partial class ProximasCitasPage : ContentPage
     {
         ViewModelCitasPendientesAdmin modelAdminP = new ViewModelCitasPendientesAdmin(usuarioActual.Id,false);
         ViewModelCitasPendientesCliente modelClienteP = new ViewModelCitasPendientesCliente(citaSeleccionada.IdCliente, false);
-        ViewModelCitasFinalizadasAdmin modelAdminF = new ViewModelCitasFinalizadasAdmin(usuarioActual.Id,false);
-        ViewModelCitasFinalizadasCliente modelClienteF = new ViewModelCitasFinalizadasCliente(citaSeleccionada.IdCliente, false);
         await modelAdminP.DeleteData(citaSeleccionada.Id);
         await modelClienteP.DeleteData(citaSeleccionada.Id);
-
-        var newCita = new Cita
-        {
-            Cliente = citaSeleccionada.Cliente,
-            IdAgente= citaSeleccionada.IdAgente,
-            Agente = citaSeleccionada.Agente,
-            Telefono = citaSeleccionada.Telefono,
-            Estado = "1",
-            Fecha = citaSeleccionada.Fecha,
-            Hora = citaSeleccionada.Hora,
-            Tipo = citaSeleccionada.Tipo,
-            Precio = citaSeleccionada.Precio,
-            Calificacion = "0",
-            Extra = citaSeleccionada.Extra,
-            IdCliente = citaSeleccionada.IdCliente
-        };
-
-        await modelAdminF.InsertData(citaSeleccionada.Id, newCita);
-
-        await modelClienteF.InsertData(citaSeleccionada.Id, newCita);
     }
 
     private async void Frame_Tapped(object sender, EventArgs e)
@@ -86,8 +64,5 @@ public partial class ProximasCitasPage : ContentPage
             }
         }
     }
-
-
-    
 
 }

@@ -62,7 +62,7 @@ public partial class PANTALLA_PRINCIPAL : ContentPage
 
     private async void OnCalificarClicked(object sender, EventArgs e)
     {
-        await MauiPopup.PopupAction.DisplayPopup(new CalificarClientePage());
+        //await MauiPopup.PopupAction.DisplayPopup(new CalificarClientePage());
     }
 
     private async void OnEnviarEmailClicked(object sender, EventArgs e)
@@ -78,7 +78,7 @@ public partial class PANTALLA_PRINCIPAL : ContentPage
     }
     private async void OnAgendarCitaAdminClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new AgendarCitaAdminPage());
+        //await Navigation.PushAsync(new AgendarCitaAdminPage());
     }
     private async void OnCitasProximasAdminClicked(object sender, EventArgs e)
     {

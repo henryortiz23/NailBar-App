@@ -9,8 +9,8 @@
                          Margin="20"
                          Title="Calificar servicio">
 
-    <Frame Style="{StaticResource FrameEntry}" Padding="20">
-        <StackLayout>
+    <Frame Padding="20" CornerRadius="0" BorderColor="#9e42a5">
+        <StackLayout Margin="2">
             <Label Text="NailBar - Calificar servicio" Style="{StaticResource LabelSubTitle}"/>
 
             <FlexLayout Direction="Row" Wrap="Wrap" HorizontalOptions="Fill" JustifyContent="SpaceEvenly" HeightRequest="48" Margin="10">
@@ -41,7 +41,7 @@
                 </Image>
             </FlexLayout>
             <HorizontalStackLayout Margin="0,30,0,0" HorizontalOptions="End" Spacing="10">
-                <Button Text="Aceptar"/>
+                <Button Text="Aceptar"  x:Name="btnAceptar" Clicked="OnAceptarClicked"/>
                 <Button Text="Cancelar" Style="{StaticResource ButtonStyle2}" Clicked="OnCerrarClicked"/>
             </HorizontalStackLayout>
         </StackLayout>

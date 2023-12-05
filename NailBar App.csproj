@@ -70,9 +70,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\AgendarCitaAdminPage.xaml.cs">
-	    <DependentUpon>AgendarCitaAdminPage.xaml</DependentUpon>
-	  </Compile>
 	  <Compile Update="Views\AgendarCitaClientePage.xaml.cs">
 	    <DependentUpon>AgendarCitaClientePage.xaml</DependentUpon>
 	  </Compile>
@@ -91,12 +88,12 @@
 	  <Compile Update="Views\PerfilPage.xaml.cs">
 	    <DependentUpon>PerfilPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\ProximasCitasClientePage.xaml.cs">
+	    <DependentUpon>ProximasCitasClientePage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\AgendarCitaAdminPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	  <MauiXaml Update="Views\AgendarCitaClientePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -122,6 +119,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\PopupPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProximasCitasClientePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\ProximasCitasPage.xaml">

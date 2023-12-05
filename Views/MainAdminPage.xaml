@@ -14,88 +14,48 @@
                 HeightRequest="100"
                 HorizontalOptions="Center" />
 
-            <Frame Style="{StaticResource FrameCard}" CornerRadius="30">
-                
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <StackLayout Grid.Column="0" Margin="10,0,10,0" >
-                        <Label Text="Cita proxima" Style="{StaticResource LabelSubTitle}" HorizontalOptions="FillAndExpand"/>
-                        <FlexLayout Direction="Row" JustifyContent="SpaceBetween" HorizontalOptions="Fill">
-                            <Label Text="11/12/2023" Style="{StaticResource LabelSubTitle}" FontSize="Subtitle"/>
-                            <Label Text="02:50 PM" Style="{StaticResource LabelSubTitle}" FontSize="Subtitle"/>
-                        </FlexLayout>
-                        <Label Text="Cliente: Maria Lopez" Style="{StaticResource 
-                            LabelCardText}"/>
-                        <Label Text="Servicio: Manicure" Style="{StaticResource 
-    LabelCardText}"/>
-                    </StackLayout>
-                </Grid>
-            </Frame>
+            <VerticalStackLayout Spacing="25" Margin="0,30,0,0">
+                <Frame Style="{StaticResource FrameCard}" CornerRadius="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureListado"/>
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="citas_nailbar.svg" WidthRequest="60"/>
+                        <StackLayout Grid.Column="1" Margin="10,0,10,0">
+                            <Label Text="Citas" Style="{StaticResource LabelSubTitle}"/>
+                            <Label Text="Administre listado de citas pendientes" Style="{StaticResource LabelCardText}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
 
-            <Frame Style="{StaticResource FrameCard}" CornerRadius="30">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureListado"/>
-                </Frame.GestureRecognizers>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="citas_nailbar.svg" WidthRequest="60"/>
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0">
-                        <Label Text="Citas" Style="{StaticResource LabelSubTitle}"/>
-                        <Label Text="Administre listado de citas pendientes" Style="{StaticResource LabelCardText}"/>
-                    </StackLayout>
-                </Grid>
-            </Frame>
+                <Frame Style="{StaticResource FrameCard}"  CornerRadius="30">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureHistorial"/>
+                    </Frame.GestureRecognizers>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="historial_nailbar.svg" WidthRequest="60"/>
+                        <StackLayout Grid.Column="1" Margin="10,0,10,0">
+                            <Label Text="Historial de citas" Style="{StaticResource LabelSubTitle}"/>
+                            <Label Text="Visualice el historial de citas finalizadas" Style="{StaticResource LabelCardText}"/>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
 
-            <Frame Style="{StaticResource FrameCard}"  CornerRadius="30">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureHistorial"/>
-                </Frame.GestureRecognizers>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="historial_nailbar.svg" WidthRequest="60"/>
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0">
-                        <Label Text="Historial de citas" Style="{StaticResource LabelSubTitle}"/>
-                        <Label Text="Visualice el historial de citas finalizadas" Style="{StaticResource LabelCardText}"/>
-                    </StackLayout>
-                </Grid>
-            </Frame>
-
-            <Frame Style="{StaticResource FrameCard}"  CornerRadius="30">
-                <Frame.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureHistorial"/>
-                </Frame.GestureRecognizers>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="3*"/>
-                    </Grid.ColumnDefinitions>
-                    <Image Source="agendar_nailbar.svg" WidthRequest="60"/>
-                    <StackLayout Grid.Column="1" Margin="10,0,10,0">
-                        <Label Text="Programar cita" Style="{StaticResource LabelSubTitle}"/>
-                        <Label Text="Programe la proxima cita a sus clientas" Style="{StaticResource LabelCardText}"/>
-                    </StackLayout>
-                </Grid>
-            </Frame>
+            </VerticalStackLayout>
 
         </StackLayout>
     </ScrollView>

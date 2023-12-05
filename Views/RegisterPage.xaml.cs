@@ -146,8 +146,16 @@ public partial class RegisterPage : ContentPage
         var navigationPage = new NavigationPage(new Views.MainClientePage(newCliente));
         navigationPage.BarTextColor = titleColor;
 
+        setPrefences();
+
         await Navigation.PopAsync();
         App.Current.MainPage = navigationPage;
+    }
+
+    private async void setPrefences()
+    {
+        Preferences.Default.Set("correo", entCorreo.Text.ToString());
+        Preferences.Default.Set("password", entPass.Text.ToString());
     }
 
     private bool ComprobarCampos()
